@@ -35,6 +35,9 @@ on dc.id_contract=ctr.id_contract
 left join rerort_amenities ra
 on ra.id_ra = dc.id_ra;
 
+
+-- -----------------------check-------------------------- 
+
 select *
 from contract;
 
