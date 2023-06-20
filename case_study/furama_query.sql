@@ -22,7 +22,7 @@ order by count(con.id_customer);
 
 -- 5
 
-select c.id_customer,name_customer, name_cl, ctr.id_contract,name_service,contract_date,contract_end_date, rental_fee+price*quantity as 'total price'
+select c.id_customer,name_customer, name_cl, ctr.id_contract,name_service,contract_date,contract_end_date, rental_fee+(price*quantity) as 'total price'
 from customer c
 join customer_level cl
 on cl.id_cl = c.id_customer_level
