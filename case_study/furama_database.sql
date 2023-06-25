@@ -1,6 +1,7 @@
 create database furuma_database;
 use furuma_database;
 
+
 create table job_position(
 id_jp int primary key,
 name_jp varchar(45)
