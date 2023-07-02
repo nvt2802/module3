@@ -17,11 +17,11 @@ public class Calculator {
                 if(secondNum!=0) {
                     result = firstNum / secondNum;
                 }else {
-                    throw new RuntimeException("Can't divide by zero");
+                    throw new ArithmeticException("Can't divide by zero");
                 }
                 break;
             default:
-                throw new RuntimeException("Invalid operation");
+                throw new ArithmeticException("Invalid operation");
         }
         return result;
     }
