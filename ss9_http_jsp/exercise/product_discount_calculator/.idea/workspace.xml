@@ -4,7 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8da35bbb-9c97-45c3-a321-372a88084a6d" name="Changes" comment="" />
+    <list default="true" id="8da35bbb-9c97-45c3-a321-372a88084a6d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../demo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../queen_store/background-header-top-comem.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../queen_store/logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../queen_store/logo2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../queen_store/quyen_hoang.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/result.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../queen_store/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../queen_store/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../queen_store/menu_hear.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../../queen_store/menu_hear.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../queen_store/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../../queen_store/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss10_jsp_jstl/exercise/customer_list/src/main/java/com/example/customer_list/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss10_jsp_jstl/exercise/customer_list/src/main/java/com/example/customer_list/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss10_jsp_jstl/exercise/customer_list/src/main/java/com/example/customer_list/CustomerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss10_jsp_jstl/exercise/customer_list/src/main/java/com/example/customer_list/CustomerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss10_jsp_jstl/exercise/customer_list/src/main/webapp/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss10_jsp_jstl/exercise/customer_list/src/main/webapp/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss7_design/exercise/create_layout/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss7_design/exercise/create_layout/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss7_design/exercise/create_layout/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss7_design/exercise/create_layout/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss8_bootstrap/exercise/landing_page/langding_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss8_bootstrap/exercise/landing_page/langding_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/discount_servlet/DiscountServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/discount_servlet/DiscountServlet.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +35,16 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jsp File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -41,7 +72,9 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/CODEGYM/module3/ss9_http_jsp/exercise/product_discount_calculator",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -147,6 +180,7 @@
       <option name="presentableId" value="Default" />
       <updated>1688028550313</updated>
       <workItem from="1688028551481" duration="2851000" />
+      <workItem from="1688283183623" duration="550000" />
     </task>
     <servers />
   </component>
