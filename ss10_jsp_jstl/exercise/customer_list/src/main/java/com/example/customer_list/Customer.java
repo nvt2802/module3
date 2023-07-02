@@ -1,5 +1,8 @@
+package com.example.customer_list;
+
 public class Customer {
-    private String namme;
+    private int id;
+    private String name;
     private String dateOfBirth;
     private String address;
     private String img;
@@ -7,19 +10,28 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(String namme, String dateOfBirth, String address, String img) {
-        this.namme = namme;
+    public Customer( int id,String name, String dateOfBirth, String address, String img) {
+        this.id = id;
+        this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.address = address;
         this.img = img;
     }
 
-    public String getNamme() {
-        return namme;
+    public int getId() {
+        return id;
     }
 
-    public void setNamme(String namme) {
-        this.namme = namme;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDateOfBirth() {
