@@ -12,7 +12,12 @@
     <title>List</title>
 </head>
 <body>
-<a href="/ProductServlet?action=search">search</a>
+<form action="/ProductServlet" method="get">
+    <label for="searchId"></label>
+    <input type="search" id="searchId" name="searchProduct" placeholder="Search...">
+    <input type="search" name="action" value="search" hidden="hidden">
+    <input type="submit" value="Search">
+</form>
 <table>
     <tr>
         <th>STT</th>
