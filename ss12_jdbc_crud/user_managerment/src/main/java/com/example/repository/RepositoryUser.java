@@ -11,9 +11,9 @@ public class RepositoryUser implements IRepositoryUser {
 
     private static final String INSERT_USERS_SQL = "INSERT INTO users (name, email, country) VALUES (?, ?, ?);";
     private static final String SELECT_USER_BY_ID = "select id,name,email,country from users where id =?";
-    private static final String SELECT_ALL_USERS = "select * from users";
-    private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
-    private static final String UPDATE_USERS_SQL = "update users set name = ?,email= ?, country =? where id = ?;";
+    private static final String SELECT_ALL_USERS = "call selectAll();";
+    private static final String DELETE_USERS_SQL = "call deleteUser(?);";
+    private static final String UPDATE_USERS_SQL = "call updateUser(?,?,?,?);";
 
     private static final String SELECT_USER_BY_COUNTRY = "select * from users\n" +
             "where country like ?";
@@ -85,6 +85,74 @@ public class RepositoryUser implements IRepositoryUser {
     }
 
     @Override
+    public void addUserTransaction(User user, int[] permision) {
+        Connection conn = null;
+        // for insert a new user
+        PreparedStatement pstmt = null;
+        // for assign permision to user
+        PreparedStatement pstmtAssignment = null;
+        // for getting user id
+        ResultSet rs = null;
+        try {
+            conn = BaseRepository.getConnection();
+            // set auto commit to false
+            conn.setAutoCommit(false);
+            //
+            // Insert user
+            //
+            pstmt = conn.prepareStatement(INSERT_USERS_SQL, Statement.RETURN_GENERATED_KEYS);
+            pstmt.setString(1, user.getName());
+            pstmt.setString(2, user.getEmail());
+            pstmt.setString(3, user.getCountry());
+            int rowAffected = pstmt.executeUpdate();
+            // get user id
+            rs = pstmt.getGeneratedKeys();
+            int userId = 0;
+            if (rs.next())
+                userId = rs.getInt(1);
+            // in case the insert operation successes, assign permision to user
+            if (rowAffected == 1) {
+                // assign permision to user
+                String sqlPivot = "INSERT INTO user_permision(user_id,permision_id) "
+                        + "VALUES(?,?)";
+                pstmtAssignment = conn.prepareStatement(sqlPivot);
+                for (int permisionId : permision) {
+                    pstmtAssignment.setInt(1, userId);
+                    pstmtAssignment.setInt(2, permisionId);
+                    pstmtAssignment.executeUpdate();
+                }
+                conn.commit();
+            } else {
+                conn.rollback();
+            }
+        } catch (SQLException ex) {
+            // roll back the transaction
+            try {
+                if (conn != null)
+                    conn.rollback();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (pstmt != null) pstmt.close();
+                if (pstmtAssignment != null) pstmtAssignment.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+    }
+
+    @Override
+    public void insertUpdateWithoutTransaction() {
+
+    }
+
+    @Override
     public List<User> getListByCountry(String country) {
         List<User> userList = new ArrayList<>();
         Connection connection = BaseRepository.getConnection();
@@ -115,10 +183,10 @@ public class RepositoryUser implements IRepositoryUser {
         try (Connection connection = BaseRepository.getConnection();
 
              // Step 2:Create a statement using connection object
-             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USERS);) {
-            System.out.println(preparedStatement);
+             CallableStatement callableStatement = connection.prepareCall(SELECT_ALL_USERS);) {
+            System.out.println(callableStatement);
             // Step 3: Execute the query or update query
-            ResultSet rs = preparedStatement.executeQuery();
+            ResultSet rs = callableStatement.executeQuery();
 
             // Step 4: Process the ResultSet object.
             while (rs.next()) {
@@ -137,22 +205,23 @@ public class RepositoryUser implements IRepositoryUser {
     public boolean deleteUser(int id) throws SQLException {
         boolean rowDeleted;
         try (Connection connection = BaseRepository.getConnection();
-             PreparedStatement statement = connection.prepareStatement(DELETE_USERS_SQL);) {
-            statement.setInt(1, id);
-            rowDeleted = statement.executeUpdate() > 0;
+             CallableStatement callableStatement = connection.prepareCall(DELETE_USERS_SQL);) {
+            callableStatement.setInt(1, id);
+            rowDeleted = callableStatement.executeUpdate() > 0;
         }
         return rowDeleted;
     }
 
     public boolean updateUser(User user) throws SQLException {
         boolean rowUpdated;
-        try (Connection connection = BaseRepository.getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE_USERS_SQL);) {
-            statement.setString(1, user.getName());
-            statement.setString(2, user.getEmail());
-            statement.setString(3, user.getCountry());
-            statement.setInt(4, user.getId());
+        try (Connection connection = BaseRepository.getConnection();
+             CallableStatement callableStatement = connection.prepareCall(UPDATE_USERS_SQL);) {
+            callableStatement.setInt(1, user.getId());
+            callableStatement.setString(2, user.getName());
+            callableStatement.setString(3, user.getEmail());
+            callableStatement.setString(4, user.getCountry());
 
-            rowUpdated = statement.executeUpdate() > 0;
+            rowUpdated = callableStatement.executeUpdate() > 0;
         }
         return rowUpdated;
     }

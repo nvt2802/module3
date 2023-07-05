@@ -19,4 +19,6 @@ public interface IServiceUser {
     List<User> getListByCountry(String country);
 
     List<User> sortListName();
+
+    void addUserTransaction(User user, int[] permision);
 }

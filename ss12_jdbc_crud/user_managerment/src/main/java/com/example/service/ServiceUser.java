@@ -43,4 +43,9 @@ public class ServiceUser implements IServiceUser{
     public List<User> sortListName() {
         return repositoryUser.sortListName();
     }
+
+    @Override
+    public void addUserTransaction(User user, int[] permision) {
+        repositoryUser.addUserTransaction(user,permision);
+    }
 }
